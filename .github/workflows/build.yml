@@ -6,7 +6,7 @@ on:
 # https://github.com/docker/build-push-action/issues/127#issuecomment-695366990
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, ARM64]
     steps:
       - uses: actions/checkout@v2
       - name: Set vars
@@ -29,7 +29,8 @@ jobs:
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: ./5.7
+          file: ./5.7/Dockerfile
           push: true
           # tags: <org-name>/<repo-name>/<app-name>:<tag>
           tags: |
