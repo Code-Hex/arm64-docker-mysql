@@ -216,7 +216,6 @@ docker_setup_db() {
 	# Load timezone info into database
 	if [ -z "$MYSQL_INITDB_SKIP_TZINFO" ]; then
 		# sed is for https://bugs.mysql.com/bug.php?id=20545
-		ls /usr/share/zoneinfo
 		mysql_tzinfo_to_sql /usr/share/zoneinfo \
 			| sed 's/Local time zone must be set--see zic manual page/FCTY/' \
 			| docker_process_sql --dont-use-mysql-root-password --database=mysql
