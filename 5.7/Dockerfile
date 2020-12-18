@@ -1,4 +1,4 @@
-FROM arm64v8/ubuntu:18.04
+FROM ubuntu:18.04
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN groupadd -r mysql && useradd -r -g mysql mysql
